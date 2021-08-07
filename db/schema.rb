@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210807071857) do
+ActiveRecord::Schema.define(version: 20210807075716) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.boolean "domestic", default: false
+    t.boolean "world", default: false
+    t.boolean "business", default: false
+    t.boolean "entertainment", default: false
+    t.boolean "sports", default: false
+    t.boolean "it", default: false
+    t.boolean "science", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "news_items", force: :cascade do |t|
     t.string "title"
@@ -18,6 +31,8 @@ ActiveRecord::Schema.define(version: 20210807071857) do
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category", null: false
+    t.index ["category"], name: "index_news_items_on_category"
     t.index ["title"], name: "index_news_items_on_title"
   end
 
@@ -26,6 +41,7 @@ ActiveRecord::Schema.define(version: 20210807071857) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "favorite"
     t.index ["name"], name: "index_users_on_name"
   end
 
