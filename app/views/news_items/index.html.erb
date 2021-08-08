@@ -1,14 +1,5 @@
 <h1 class="p-3">News Item Index Page</h1>
 
-<div class="container">
-    <% categories = [:all, :domestic, :world, :business, :entertainment, :sports, :it, :science] %>
-    <% categories.each do |category| %>
-    <div class="list-group p-3">
-        <% list_class = "list-group-item list-group-item-action" %>
-        <%= link_to category, send("#{category}_path"), class: list_class, target: "__blank" %>
-        <% @news_items.where(category: category).each do |news| %>
-        <li class="list-group-item"><%= news.title %></li>
-        <% end %>
-    </div>
-    <% end %>
+<div class="news_list">
+    <%= render 'news_items/news_list' %>
 </div>

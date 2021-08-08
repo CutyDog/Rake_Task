@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 class="display-4">Hello, world!<br>&nbsp;&nbsp;on <%= @today %></h1>
+  <p class="lead">This is a Rake Task app, including Users Index, News Item Index, and New User pages.</p>
+  <hr class="my-4">
+  <p>
+    The latest News are able to get by below command :<br>
+    <pre>&nbsp;&nbsp;<code>rake news_pick:update_items</code></pre>
+    Source code is published in below "Git Hub" link. 
+  </p>
+  <a class="btn btn-outline-success btn-lg" href="https://github.com/CutyDog/Rake_Task" role="button">Git Hub</a>
+</div>
+
+<div class="today_news">
+    <h3>Today's Top News</h3>
+    <%= render 'shared/top_news' %>
+</div>
+
+<style>
+code {
+    display: inline-block;
+    padding: 0.1em 0.25em; /* 文字周りの余白 */
+    color: #444; /* 文字色 */
+    background-color: #e7edf3; /* 背景色 */
+    border-radius: 3px; /* 角丸 */
+    border: solid 1px #d6dde4; /* 枠線 */
+}
+</style>

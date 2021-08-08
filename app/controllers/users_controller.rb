@@ -1,4 +1,14 @@
 class UsersController < ApplicationController
+require 'time'
+
+    def home
+        @today = DateTime.now
+        @top_news = []
+        @categories = [:domestic, :world, :business, :entertainment, :sports, :it, :science]
+        @categories.each do |category|
+            @top_news << NewsItem.where(category: category).first 
+        end
+    end
 
     def index 
         @users = User.all

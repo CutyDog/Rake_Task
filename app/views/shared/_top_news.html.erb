@@ -1,0 +1,7 @@
+<ul class="list-group list-group-flush">
+    <% @top_news.each do |top| %>
+    <li class="list-group-item">
+        <h4><span class="badge badge-secondary"><%= top.category %></span> <%= top.title %></h4>
+    </li>
+    <% end %>
+</ul>
