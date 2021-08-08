@@ -1,4 +1,23 @@
-<div><%= @user.name %></div>
-<% @news_categories.each do |category| %>
-    <%= link_to category, send("#{category}_path") %>
-<% end %>
+<h1><%= @user.name %></h1>
+
+<div class="my_news">
+    <div class="p-3">My News</div>
+    <ul class="list-group list-group-flush">
+        <% @news_categories.each do |category| %>
+        <li class="list-group-item"><%= link_to category, send("#{category}_path") %></li>
+        <% end %>
+    </ul>
+</div>
+
+<div class="category_register">
+    <div class="p-3">Add Favorite Categories</div>
+    <%= form_for(@favorite, url: favorite_path(@favorite), class: 'form-horizontal') do |f| %>
+        <% @categories.each do |category| %>
+        <div class="form-check">
+            <%= f.check_box category, class: "form-check-input", type: "checkbox", id: "defaultCheck1" %>
+            <%= f.label category, class: "form-check-label", for: "defaultCheck1" %>
+        </div>
+        <% end %>
+        <%= f.submit "Enter Categories", class: "btn btn-primary" %>
+    <% end %>
+</div>

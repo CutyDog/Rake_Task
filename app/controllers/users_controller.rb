@@ -6,9 +6,10 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @favorite = @user.favorites.first
         @news_categories = []
-        categories = [:domestic, :world, :business, :entertainment, :sports, :it, :science]
-        categories.each do |category|
+        @categories = [:domestic, :world, :business, :entertainment, :sports, :it, :science]
+        @categories.each do |category|
             @news_categories << category if @user.favorites.first[category]==true
         end
     end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
   resources :users
+  resources :favorites, only: :update
 
   get '/news_items', to: 'news_items#index'
   get 'all', to: 'news_items#all_categories'
