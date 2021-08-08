@@ -1,0 +1,8 @@
+<h1>News Item Index Page</h1>
+
+<% categories = [:all, :domestic, :world, :business, :entertainment, :sports, :it, :science] %>
+<ul>
+<% categories.each do |category| %>
+    <li><%= link_to category, send("#{category}_path") %></li>
+<% end %>
+</ul>
