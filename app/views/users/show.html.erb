@@ -1,0 +1,4 @@
+<div><%= @user.name %></div>
+<% @news_categories.each do |category| %>
+    <%= link_to category, send("#{category}_path") %>
+<% end %>

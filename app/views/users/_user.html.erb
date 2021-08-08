@@ -1,4 +1,3 @@
-<li>
-    <span class="name"><%= user.name %></span>
-    <span class="email"><%= user.email %></span>
-</li>
+<%= link_to user.name, user_path(user),
+ class: 'list-group-item list-group-item-action',
+  target: :_blank %>
